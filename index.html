@@ -4,20 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Commit Message Validator</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 18px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Git Commit Message Validator</h1>
-        <p>Enter a commit message to validate against conventional commit format.</p>
+    <h1>Git Commit Message Validator</h1>
+    <p>Enter a commit message to validate against conventional commit format.</p>
 
-        <input type="text" id="commitInput" placeholder="feat: add login page">
-        <button onclick="validateMessage()">Validate</button>
+    <input type="text" id="commitInput" placeholder="feat: add login page">
+    <button onclick="validateMessage()">Validate</button>
 
-        <p id="result"></p>
-    </div>
+    <p id="result"></p>
 
-    <script src="script.js"></script>
+    <script>
+        function validateMessage() {
+            let message = document.getElementById("commitInput").value;
+            let result = document.getElementById("result");
+
+            let pattern = /^(feat|fix|docs|style|refactor|test|chore): .+/;
+
+            if (pattern.test(message)) {
+                result.innerHTML = "✅ Valid commit message";
+                result.style.color = "green";
+            } else {
+                result.innerHTML = "❌ Invalid commit message";
+                result.style.color = "red";
+            }
+        }
+    </script>
+
 </body>
 </html>
