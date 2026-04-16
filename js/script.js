@@ -1,13 +1,14 @@
 function validateMessage() {
-  const input = document.getElementById('commitInput').value.trim();
-  const result = document.getElementById('result');
-  const pattern = /^(feat|fix|docs|style|refactor|test|chore)(\([a-zA-Z0-9_-]+\))?: .+/;
+    let message = document.getElementById("commitInput").value;
+    let result = document.getElementById("result");
 
-  if (pattern.test(input)) {
-    result.textContent = '✅ Valid commit message';
-    result.className = 'valid';
-  } else {
-    result.textContent = '❌ Invalid commit message';
-    result.className = 'invalid';
-  }
+    let pattern = /^(feat|fix|docs|style|refactor|test|chore): .+/;
+
+    if (pattern.test(message)) {
+        result.innerHTML = "✅ Valid commit message";
+        result.style.color = "green";
+    } else {
+        result.innerHTML = "❌ Invalid commit message";
+        result.style.color = "red";
+    }
 }
