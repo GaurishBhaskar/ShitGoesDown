@@ -1,5 +1,5 @@
 
-Its a  that validates Git commit messages using the **Conventional Commits standard**.  
+Its a tool that validates Git commit messages using the **Conventional Commits standard**.  
 This project helps developers maintain a clean and meaningful Git history by ensuring every commit message follows a predefined format.
 
 ---
